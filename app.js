@@ -95,7 +95,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === modalOverlay) closeModal();
   });
 
-  // 1. 📖 e-Program Book Click Handler
+  // 1. 🎟️ On-Site Registration Click Handler
+  document.getElementById('btn-onsite-register').addEventListener('click', () => {
+    const reg = config.onSiteRegistration || {};
+    if (reg.url && reg.url.trim() !== '') {
+      window.open(reg.url, '_blank');
+    } else {
+      openModal({
+        icon: '🎟️',
+        title: '모바일 현장등록',
+        subtitle: 'On-Site Registration',
+        bodyHTML: `
+          <div class="info-box">
+            <p style="font-size: 0.875rem; color: var(--text-primary); line-height: 1.5;">
+              GDW 2026 현장 등록 및 참가 신청 페이지입니다.
+            </p>
+          </div>
+        `,
+        actionsHTML: `
+          <a href="https://gdw2026.vercel.app/?view=public-register" target="_blank" class="btn-primary-action">🎟️ 현장등록 바로가기</a>
+          <button class="btn-secondary-action" onclick="document.getElementById('modal-overlay').classList.remove('active')">닫기</button>
+        `
+      });
+    }
+  });
+
+  // 2. 📖 e-Program Book Click Handler
   document.getElementById('btn-program-book').addEventListener('click', () => {
     const info = config.programBook || {};
     if (info.url && info.url.trim() !== '') {
@@ -124,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 2. 📶 Venue Wi-Fi Click Handler
+  // 3. 📶 Venue Wi-Fi Click Handler
   document.getElementById('btn-wifi').addEventListener('click', () => {
     const wifi = config.wifi || {};
     const instructionsHTML = (wifi.instructions || [])
@@ -163,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. 🎧 AI Live Interpretation (SNAP SIGHT) Handler
+  // 4. 🎧 AI Live Interpretation (SNAP SIGHT) Handler
   document.getElementById('btn-ai-interpretation').addEventListener('click', () => {
     const ai = config.aiInterpretation || {};
     const instructionsHTML = (ai.instructions || [])
@@ -196,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. 🔴 YouTube Live Streaming Handler
+  // 5. 🔴 YouTube Live Streaming Handler
   document.getElementById('btn-youtube-live').addEventListener('click', () => {
     const yt = config.youtubeLive || {};
     const instructionsHTML = (yt.instructions || [])
@@ -229,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. 📲 Official App (CVENT) Handler
+  // 6. 📲 Official App (CVENT) Handler
   document.getElementById('btn-official-app').addEventListener('click', () => {
     const app = config.officialApp || {};
     const instructionsHTML = (app.instructions || [])
@@ -268,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 6. Accordion Toggle for Daily Survey
+  // 7. Accordion Toggle for Daily Survey
   surveyHeader.addEventListener('click', () => {
     surveyAccordion.classList.toggle('open');
   });
