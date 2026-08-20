@@ -196,7 +196,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. 📲 Official App (CVENT) Handler
+  // 4. 🔴 YouTube Live Streaming Handler
+  document.getElementById('btn-youtube-live').addEventListener('click', () => {
+    const yt = config.youtubeLive || {};
+    const instructionsHTML = (yt.instructions || [])
+      .map(item => `<div class="instruction-item">${item}</div>`)
+      .join('');
+
+    const actionButton = (yt.url && yt.url.trim() !== '') 
+      ? `<a href="${yt.url}" target="_blank" class="btn-primary-action" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">▶️ 유튜브 라이브 시청하기</a>`
+      : `<button class="btn-primary-action" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);" onclick="window.GDW_SHOW_TOAST('유튜브 라이브 방송 링크 연결 준비 중입니다.')">🔴 유튜브 라이브 바로가기 (준비중)</button>`;
+
+    openModal({
+      icon: '🔴',
+      title: '유튜브 라이브 실시간 중계',
+      subtitle: 'YouTube Live Streaming',
+      bodyHTML: `
+        <div class="info-box">
+          <p style="font-size: 0.85rem; color: var(--text-primary); line-height: 1.5;">
+            GDW 2026 주요 세션 현장을 <strong>실시간 유튜브 라이브 스트리밍</strong>으로 생중계합니다.
+          </p>
+        </div>
+        <div class="section-title" style="margin-bottom: 6px;">시청 안내 (Streaming Guide)</div>
+        <div class="instruction-list">
+          ${instructionsHTML}
+        </div>
+      `,
+      actionsHTML: `
+        ${actionButton}
+        <button class="btn-secondary-action" onclick="document.getElementById('modal-overlay').classList.remove('active')">닫기</button>
+      `
+    });
+  });
+
+  // 5. 📲 Official App (CVENT) Handler
   document.getElementById('btn-official-app').addEventListener('click', () => {
     const app = config.officialApp || {};
     const instructionsHTML = (app.instructions || [])
@@ -235,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. Accordion Toggle for Daily Survey
+  // 6. Accordion Toggle for Daily Survey
   surveyHeader.addEventListener('click', () => {
     surveyAccordion.classList.toggle('open');
   });

@@ -46,7 +46,19 @@ window.GDW_CONFIG = {
     ]
   },
 
-  // 4. 📲 행사 공식 앱 | CVENT App Download
+  // 4. 🔴 실시간 생중계 | YouTube Live Streaming
+  youtubeLive: {
+    title: "🔴 유튜브 라이브 실시간 중계 | YouTube Live Streaming",
+    description: "GDW 2026 현장 세션을 유튜브 라이브로 시청하세요.",
+    // 추후 YouTube 라이브 스트리밍 URL
+    url: "", 
+    instructions: [
+      "1. 아래 버튼을 클릭하여 GDW 2026 공식 유튜브 라이브 채널에 접속합니다.",
+      "2. 세션별 실시간 생중계 및 다시보기(VOD)를 시청하실 수 있습니다."
+    ]
+  },
+
+  // 5. 📲 행사 공식 앱 | CVENT App Download
   officialApp: {
     title: "📲 행사 공식 앱 | CVENT App Download",
     appName: "CVENT Events App",
@@ -60,7 +72,7 @@ window.GDW_CONFIG = {
     ]
   },
 
-  // 5. 📝 만족도 조사 | Daily Survey
+  // 6. 📝 만족도 조사 | Daily Survey
   surveys: [
     {
       id: "day1",
