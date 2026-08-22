@@ -122,9 +122,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 2. 📖 e-Program Book Click Handler
   document.getElementById('btn-program-book').addEventListener('click', () => {
-    const info = config.programBook || {};
+    const liveConfig = window.GDW_CONFIG || config;
+    const info = (liveConfig && liveConfig.programBook) || {};
     if (info.url && info.url.trim() !== '') {
-      window.open(info.url, '_blank');
+      try {
+        const win = window.open(info.url, '_blank');
+        if (!win || win.closed || typeof win.closed === 'undefined') {
+          window.location.href = info.url;
+        }
+      } catch (e) {
+        window.location.href = info.url;
+      }
     } else {
       openModal({
         icon: '📖',
@@ -134,15 +142,17 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="info-box">
             <p style="font-size: 0.875rem; color: var(--text-primary); line-height: 1.5;">
               GDW 2026 전자 프로그램북 연결 페이지입니다.<br>
-              현재 <strong>행사 준비 중</strong>으로 링크가 연결 예정 상태입니다.
+              ${info.url ? '아래 바로가기 버튼을 클릭하여 e-Book을 확인하세요.' : '현재 <strong>행사 준비 중</strong>으로 링크가 연결 예정 상태입니다.'}
             </p>
           </div>
           <div class="instruction-list">
-            <div class="instruction-item">• 프로그램 및 연사 정보가 담긴 e-Book PDF 버전이 곧 등록됩니다.</div>
-            <div class="instruction-item">• 주소가 연결되면 이 버튼 클릭 시 바로 바로가기가 실행됩니다.</div>
+            <div class="instruction-item">• 프로그램 및 연사 정보가 담긴 e-Book 디지털 책자입니다.</div>
           </div>
         `,
-        actionsHTML: `
+        actionsHTML: info.url ? `
+          <a href="${info.url}" target="_blank" class="btn-primary-action">📖 프로그램북 바로가기</a>
+          <button class="btn-secondary-action" onclick="document.getElementById('modal-overlay').classList.remove('active')">닫기 (Close)</button>
+        ` : `
           <button class="btn-secondary-action" onclick="document.getElementById('modal-overlay').classList.remove('active')">닫기 (Close)</button>
         `
       });
