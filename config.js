@@ -27,7 +27,7 @@ window.GDW_CONFIG = {
   programBook: {
     title: "📖 프로그램북 | e-Program Book",
     description: "행사 일정, 연사 프로필 및 세션 정보를 확인하세요.",
-    url: "", 
+    url: "https://dnic-ebook-studio.sureguy-dnic-b81.workers.dev/viewer/?project=f2c08fb3-da4f-4c70-8812-b162a04607f6", 
     notice: "GDW 2026 e-Program Book 디지털 책자 링크입니다."
   },
 
