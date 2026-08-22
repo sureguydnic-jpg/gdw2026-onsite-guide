@@ -71,11 +71,12 @@ window.GDW_CONFIG = {
     title: "📲 행사 공식 앱 | CVENT App Download",
     appName: "CVENT Events App",
     eventCode: "GDW2026",
-    iosUrl: "", 
-    androidUrl: "", 
+    url: "https://event-app-eur.cvent.me/dl/S52Gfj?eventId=62cf8e72-93b9-42fe-be0e-5158842651e0&feature=openEvent&environment=production-eu",
+    iosUrl: "https://event-app-eur.cvent.me/dl/S52Gfj?eventId=62cf8e72-93b9-42fe-be0e-5158842651e0&feature=openEvent&environment=production-eu", 
+    androidUrl: "https://event-app-eur.cvent.me/dl/S52Gfj?eventId=62cf8e72-93b9-42fe-be0e-5158842651e0&feature=openEvent&environment=production-eu", 
     instructions: [
-      "1. iOS(App Store) 또는 Android(Google Play) 아이콘을 클릭하여 CVENT 앱을 설치합니다.",
-      "2. 앱 실행 후 검색창에 이벤트 코드 'GDW2026' 입력",
+      "1. 아래 버튼 또는 링크를 클릭하여 CVENT 공식 앱을 다운로드 및 실행합니다.",
+      "2. 앱 실행 후 이벤트 코드 'GDW2026' 입력 또는 자동 연결 진행",
       "3. 등록하신 이메일 계정으로 로그인하여 나만의 세션 일정 및 1:1 미팅을 관리하세요."
     ]
   },

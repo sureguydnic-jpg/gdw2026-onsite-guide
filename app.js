@@ -266,41 +266,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 6. 📲 Official App (CVENT) Handler
   document.getElementById('btn-official-app').addEventListener('click', () => {
-    const app = config.officialApp || {};
-    const instructionsHTML = (app.instructions || [])
-      .map(item => `<div class="instruction-item">${item}</div>`)
-      .join('');
+    const liveConfig = window.GDW_CONFIG || config;
+    const app = (liveConfig && liveConfig.officialApp) || {};
+    if (app.url && app.url.trim() !== '') {
+      try {
+        const win = window.open(app.url, '_blank');
+        if (!win || win.closed || typeof win.closed === 'undefined') {
+          window.location.href = app.url;
+        }
+      } catch (e) {
+        window.location.href = app.url;
+      }
+    } else {
+      const instructionsHTML = (app.instructions || [])
+        .map(item => `<div class="instruction-item">${item}</div>`)
+        .join('');
 
-    openModal({
-      icon: '📲',
-      title: '행사 공식 앱 (CVENT)',
-      subtitle: 'CVENT Events Mobile App',
-      bodyHTML: `
-        <div class="info-box">
-          <div class="info-row">
-            <span class="info-label">이벤트 코드 (Event Code)</span>
-            <span class="info-value" style="color: var(--mint);">${app.eventCode || 'GDW2026'}</span>
+      openModal({
+        icon: '📲',
+        title: '행사 공식 앱 (CVENT)',
+        subtitle: 'CVENT Events Mobile App',
+        bodyHTML: `
+          <div class="info-box">
+            <div class="info-row">
+              <span class="info-label">이벤트 코드 (Event Code)</span>
+              <span class="info-value" style="color: var(--mint);">${app.eventCode || 'GDW2026'}</span>
+            </div>
           </div>
-        </div>
-        <div class="store-btn-group">
-          <a href="${app.iosUrl || '#'}" ${app.iosUrl ? 'target="_blank"' : 'onclick="window.GDW_SHOW_TOAST(\'App Store 앱 링크 준비 중입니다.\')"' } class="store-btn">
-            <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.63-.76 1.05-1.82.93-2.88-.91.04-2.03.61-2.68 1.37-.58.67-1.09 1.76-.95 2.8.01 0 .04.01.07.01 1.02 0 2.05-.54 2.63-1.3z"/></svg>
-            App Store 다운로드
-          </a>
-          <a href="${app.androidUrl || '#'}" ${app.androidUrl ? 'target="_blank"' : 'onclick="window.GDW_SHOW_TOAST(\'Google Play 앱 링크 준비 중입니다.\')"' } class="store-btn">
-            <svg viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a1.98 1.98 0 0 1-.61-.933V2.747c.15-.357.362-.68.609-.933zM15.207 13.414l2.766 2.766-12.87 7.43 10.104-10.196zm2.766-5.594l-2.766 2.766L5.103.39 17.973 7.82zm1.488 4.316l3.327-1.92c.677-.39.677-1.026 0-1.417l-3.327-1.92-2.903 2.903 2.903 2.354z"/></svg>
-            Google Play 다운로드
-          </a>
-        </div>
-        <div class="section-title" style="margin-bottom: 6px;">설치 및 이용 방법</div>
-        <div class="instruction-list">
-          ${instructionsHTML}
-        </div>
-      `,
-      actionsHTML: `
-        <button class="btn-secondary-action" onclick="document.getElementById('modal-overlay').classList.remove('active')">닫기</button>
-      `
-    });
+          <div class="store-btn-group">
+            <a href="${app.url || app.iosUrl || '#'}" target="_blank" class="store-btn">
+              <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.63-.76 1.05-1.82.93-2.88-.91.04-2.03.61-2.68 1.37-.58.67-1.09 1.76-.95 2.8.01 0 .04.01.07.01 1.02 0 2.05-.54 2.63-1.3z"/></svg>
+              CVENT 앱 다운로드
+            </a>
+          </div>
+          <div class="section-title" style="margin-bottom: 6px;">설치 및 이용 방법</div>
+          <div class="instruction-list">
+            ${instructionsHTML}
+          </div>
+        `,
+        actionsHTML: app.url ? `
+          <a href="${app.url}" target="_blank" class="btn-primary-action">📲 CVENT 앱 바로가기</a>
+          <button class="btn-secondary-action" onclick="document.getElementById('modal-overlay').classList.remove('active')">닫기</button>
+        ` : `
+          <button class="btn-secondary-action" onclick="document.getElementById('modal-overlay').classList.remove('active')">닫기</button>
+        `
+      });
+    }
   });
 
   // 7. Accordion Toggle for Daily Survey
