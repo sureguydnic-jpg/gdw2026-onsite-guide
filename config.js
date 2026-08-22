@@ -31,9 +31,9 @@ window.GDW_CONFIG = {
     notice: "GDW 2026 e-Program Book 디지털 책자 링크입니다."
   },
 
-  // 3. 📶 무료 와이파이 연결 | Venue Wi-Fi Info
+  // 3. 📶 공용 와이파이 연결 | Venue Wi-Fi Info
   wifi: {
-    title: "📶 무료 와이파이 연결 | Venue Wi-Fi Info",
+    title: "📶 공용 와이파이 연결 | Venue Wi-Fi Info",
     ssid: "GDW_2026_Free_WiFi",
     password: "gdw2026conference",
     instructions: [
