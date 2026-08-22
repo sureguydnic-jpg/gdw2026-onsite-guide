@@ -158,9 +158,15 @@ document.addEventListener('DOMContentLoaded', () => {
       .map(item => `<div class="instruction-item">${item}</div>`)
       .join('');
 
+    const titleText = (wifi.title || '공용 와이파이 연결')
+      .replace('무료 와이파이 연결', '공용 와이파이 연결')
+      .replace(/^📶\s*/, '')
+      .split('|')[0]
+      .trim();
+
     openModal({
       icon: '📶',
-      title: '공용 와이파이 연결',
+      title: titleText || '공용 와이파이 연결',
       subtitle: 'Venue Wi-Fi Info & Connection',
       bodyHTML: `
         <div class="info-box">
