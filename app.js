@@ -151,50 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. 📶 Venue Wi-Fi Click Handler
-  document.getElementById('btn-wifi').addEventListener('click', () => {
-    const wifi = (window.GDW_CONFIG && window.GDW_CONFIG.wifi) || config.wifi || {};
-    const instructionsHTML = (wifi.instructions || [])
-      .map(item => `<div class="instruction-item">${item}</div>`)
-      .join('');
 
-    const titleText = (wifi.title || '공용 와이파이 연결')
-      .replace('무료 와이파이 연결', '공용 와이파이 연결')
-      .replace(/^📶\s*/, '')
-      .split('|')[0]
-      .trim();
-
-    openModal({
-      icon: '📶',
-      title: titleText || '공용 와이파이 연결',
-      subtitle: 'Venue Wi-Fi Info & Connection',
-      bodyHTML: `
-        <div class="info-box">
-          <div class="info-row">
-            <span class="info-label">와이파이 이름 (SSID)</span>
-            <span class="info-value">${wifi.ssid || 'GDW_2026_Free_WiFi'}</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">비밀번호 (PW)</span>
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <span class="info-value" style="color: var(--gold);">${wifi.password || 'gdw2026conference'}</span>
-              <button class="copy-btn copy-pwd-btn" data-password="${wifi.password || 'gdw2026conference'}">복사</button>
-            </div>
-          </div>
-        </div>
-        <div class="section-title" style="margin-bottom: 6px;">접속 안내 (Instructions)</div>
-        <div class="instruction-list">
-          ${instructionsHTML}
-        </div>
-      `,
-      actionsHTML: `
-        <button class="btn-primary-action copy-pwd-btn" data-password="${wifi.password || 'gdw2026conference'}">
-          🔑 비밀번호 복사하기
-        </button>
-        <button class="btn-secondary-action" onclick="document.getElementById('modal-overlay').classList.remove('active')">닫기</button>
-      `
-    });
-  });
 
   // 4. 🎧 AI Live Interpretation (SNAP SIGHT) Handler
   document.getElementById('btn-ai-interpretation').addEventListener('click', () => {
