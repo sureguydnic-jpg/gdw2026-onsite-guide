@@ -50,7 +50,7 @@ window.GDW_CONFIG = {
     url: "https://www.snapsight.com/live-channel/l/b7a161e6-1484-46fc-a8e3-ee27c338a5ca/attendee/locations?lid=all", 
     instructions: [
       "1. 개인 스마트폰/디바이스의 카메라로 현장 QR코드를 스캔하거나 위 버튼을 클릭합니다.",
-      "2. 선호하는 원어 및 번역 언어(한국어, 영어 등)를 선택합니다.",
+      "2. 선호하는 원어 및 번역 언어(한국어, 영어)를 선택합니다.",
       "3. 행사 중 무대에서 보여지는 자막 서비스를 실시간으로 내 핸드폰 화면에서 확인하실 수 있습니다."
     ]
   },
