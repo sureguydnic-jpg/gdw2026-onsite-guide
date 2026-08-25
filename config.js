@@ -81,28 +81,28 @@ window.GDW_CONFIG = {
     ]
   },
 
-  // 7. 📝 만족도 조사 | Daily Survey
+  // 7. 📝 설문조사 | Daily Survey
   surveys: [
     {
       id: "day1",
       dayTitle: "Day 1 (8/26) Survey",
       date: "2026년 8월 26일 (수)",
       url: "https://docs.google.com/forms/d/e/1FAIpQLSfIrhj3m5SaD-Ys5aj1jDgzJRq53AAWJLK9soifwh_anOpAEQ/viewform?usp=header", 
-      notice: "Day 1 프로그램 및 세션 만족도 조사입니다."
+      notice: "Day 1 프로그램 및 세션 설문조사입니다."
     },
     {
       id: "day2",
       dayTitle: "Day 2 (8/27) Survey",
       date: "2026년 8월 27일 (목)",
       url: "https://docs.google.com/forms/d/e/1FAIpQLSflO51RTh9UCjUKJ66ss3zbRrYL4f2u6jy-jSSZqzPY9fGXvA/viewform?usp=publish-editor", 
-      notice: "Day 2 프로그램 및 세션 만족도 조사입니다."
+      notice: "Day 2 프로그램 및 세션 설문조사입니다."
     },
     {
       id: "day3",
       dayTitle: "Day 3 (8/28) Survey",
       date: "2026년 8월 28일 (금)",
       url: "https://docs.google.com/forms/d/e/1FAIpQLSd2swPvXw6C-H-T1iFxDqDC2AG8bX86GjWP5KzbgOLPmwV47A/viewform?usp=publish-editor", 
-      notice: "Day 3 프로그램 및 세션 만족도 조사입니다."
+      notice: "Day 3 프로그램 및 세션 설문조사입니다."
     }
   ]
 };

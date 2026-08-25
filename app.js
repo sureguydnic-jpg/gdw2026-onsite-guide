@@ -272,12 +272,12 @@ document.addEventListener('DOMContentLoaded', () => {
         openModal({
           icon: '📝',
           title: surveyData.dayTitle || 'Daily Survey',
-          subtitle: `${surveyData.date || ''} 만족도 조사`,
+          subtitle: `${surveyData.date || ''} 설문조사`,
           bodyHTML: `
             <div class="info-box">
               <p style="font-size: 0.875rem; color: var(--text-primary); line-height: 1.5;">
                 <strong>${surveyData.dayTitle}</strong> 링크 안내입니다.<br>
-                현재 만족도 조사 설지 문항 등록 및 <strong>링크 연결 준비 중</strong>입니다.
+                현재 설문조사 문항 등록 및 <strong>링크 연결 준비 중</strong>입니다.
               </p>
             </div>
             <div class="instruction-list">
