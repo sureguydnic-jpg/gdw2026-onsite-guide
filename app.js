@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
       bodyHTML: `
         <div class="info-box">
           <p style="font-size: 0.85rem; color: var(--text-primary); line-height: 1.5;">
-            본 행사는 <strong>SNAP SIGHT</strong> 실시간 AI 자막 및 음성 통역 서비스를 제공합니다. 스마트폰으로 실시간 번역 자막을 확인하세요.
+            ${ai.description || '행사 중 무대에서 보여지는 실시간 AI 번역 자막 서비스를 개인 스마트폰에서도 확인하실 수 있습니다. (※ 음성 서비스는 제공되지 않습니다.)'}
           </p>
         </div>
         <div class="section-title" style="margin-bottom: 6px;">이용 방법 (How to use)</div>

@@ -46,12 +46,12 @@ window.GDW_CONFIG = {
   // 4. 🎧 실시간 AI 통역 | AI Live Interpretation (SNAP SIGHT)
   aiInterpretation: {
     title: "🎧 실시간 AI 통역 | AI Live Interpretation (SNAP SIGHT)",
-    description: "SNAP SIGHT 실시간 다국어 AI 자막 & 번역 서비스",
-    url: "", 
+    description: "행사 중 무대에서 보여지는 실시간 AI 번역 자막 서비스를 개인 스마트폰에서도 확인하실 수 있습니다. (※ 음성 서비스는 제공되지 않습니다.)",
+    url: "https://www.snapsight.com/live-channel/l/b7a161e6-1484-46fc-a8e3-ee27c338a5ca/attendee/locations?lid=all", 
     instructions: [
       "1. 개인 스마트폰/디바이스의 카메라로 현장 QR코드를 스캔하거나 위 버튼을 클릭합니다.",
       "2. 선호하는 원어 및 번역 언어(한국어, 영어 등)를 선택합니다.",
-      "3. 이어폰을 착용하시면 더욱 선명하게 실시간 오디오 통역을 청취하실 수 있습니다."
+      "3. 행사 중 무대에서 보여지는 자막 서비스를 실시간으로 내 핸드폰 화면에서 확인하실 수 있습니다."
     ]
   },
 
