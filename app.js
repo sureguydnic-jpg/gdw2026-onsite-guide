@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
       bodyHTML: `
         <div class="info-box">
           <p style="font-size: 0.85rem; color: var(--text-primary); line-height: 1.5;">
-            GDW 2026 주요 세션 현장을 <strong>실시간 유튜브 라이브 스트리밍</strong>으로 생중계합니다.
+            ${yt.description || 'GDW 2026 주요 세션 현장을 실시간 유튜브 라이브 스트리밍으로 생중계합니다.'}
           </p>
         </div>
         <div class="section-title" style="margin-bottom: 6px;">시청 안내 (Streaming Guide)</div>
